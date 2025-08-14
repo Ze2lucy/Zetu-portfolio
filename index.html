@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Zetu Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
 </head>
 <body>
   <header>
@@ -17,33 +19,51 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
+    <button id="darkToggle">🌙</button>
+    <div id="themeSwitcher">
+        <button onclick="setTheme('default')">🌊 Blue</button>
+        <button onclick="setTheme('sunset')">🌅 Sunset</button>
+        <button onclick="setTheme('forest')">🌲 Forest</button>
+      </div>
   </header>
-
-  <section id="hero">
+  <div id="preloader">
+    <div class="loader"></div>
+  </div>
+<main>
+    
+<section id="hero" data-aos="zoom-in" data-aos-duration="1000">
+    <h1 id="typewriter"></h1>
     <h2>Hi, I'm Zetu 👋</h2>
     <p>Front-End Developer passionate about building beautiful, responsive web apps.</p>
-    <a href="#projects">View My Work</a>
+    
+  
+  <a href="resume.pdf" download class="resume-button">📄 Download Resume</a>
+
+  <a href="#projects">View My Work</a>
+</section>
+
+<section id="about" class="glass" data-aos="fade-up">
+        <h2>About Me</h2>
+        <p>I'm Zetu, a front-end developer applying to App Academy...</p>
+</section>
+  
+<section id="timeline" class="max-w-4xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-semibold mb-6">My Journey</h2>
+    <div id="timelineContainer" class="space-y-8"></div>
   </section>
 
-  <section id="about">
-    <h2>About Me</h2>
-    <p>
-      I'm currently applying for an internship at App Academy to deepen my understanding
-      of full-stack development and collaborate with like-minded learners.
-    </p>
+  <section id="projects" class="max-w-6xl mx-auto px-4 py-10">
+    <h2 class="text-2xl font-semibold mb-6 text-center">Featured Projects</h2>
+    <div id="projectGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
   </section>
 
-  <section id="projects">
-    <h2>Projects</h2>
-    <div class="project-card">
-      <h3>Weather App</h3>
-      <p>A simple app that fetches weather data using OpenWeather API.</p>
-      <p>Tech: HTML, CSS, JavaScript</p>
-      <a href="#">Live Demo</a> | <a href="#">GitHub</a>
-    </div>
-  </section>
+  
 
-  <section id="skills">
+  
+
+  
+
+  <section id="skills" data-aos="fade-in">
     <h2>Skills</h2>
     <ul class="skills-list">
       <li>HTML</li>
@@ -52,17 +72,49 @@
       <li>Git</li>
     </ul>
   </section>
+  
+  <section id="githubRepos">
+    <h2>My GitHub Projects</h2>
+    <ul id="repoList"></ul>
+  </section>
+  <div class="project" onclick="openModal('Project Title', 'Project description goes here.')">View Project</div>
+
+<div id="modal" class="modal">
+  <div class="modal-content">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <h2 id="modalTitle"></h2>
+    <p id="modalDesc"></p>
+  </div>
+</div>
+
+
 
   <section id="contact">
     <h2>Contact Me</h2>
-    <p>Email: <a href="mailto:your.email@example.com">your.email@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/yourusername">github.com/yourusername</a></p>
+    <p>Email: <a href="mailto:zethulucysitole@gmail.com">zethulucysitole@gmail.com</a></p>
+    <p>GitHub: <a href="https://github.com/Ze2lucy">github.com/Ze2lucy</a></p>
   </section>
+
+  <section id="contact" class="max-w-2xl mx-auto px-4 py-10 bg-white rounded-lg shadow-md">
+    <h2 class="text-2xl font-semibold mb-6">Contact Me</h2>
+    <form id="contactForm" class="space-y-4">
+      <input type="text" placeholder="Your Name" class="w-full p-3 border rounded" required />
+      <input type="email" placeholder="Your Email" class="w-full p-3 border rounded" required />
+      <textarea placeholder="Your Message" class="w-full p-3 border rounded h-32" required></textarea>
+      <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">Send</button>
+    </form>
+  </section>
+
+  <p id="formMessage"></p>
 
   <footer>
     <p>© 2025 Zetu.dev — All rights reserved.</p>
   </footer>
 
+  <script src="Timeline.js"></script>
+  <script src="projects.js"></script>
   <script src="script.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>AOS.init();</script>
 </body>
 </html>
